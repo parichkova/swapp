@@ -1,4 +1,4 @@
 [build]
 base = "/"
-publish = "npm build"
+publish = "/build/"
 command = "npm ci && npm build"

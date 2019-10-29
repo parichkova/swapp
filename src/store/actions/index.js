@@ -25,13 +25,27 @@ function loginFailed(error) {
 }
 
 
+const query = `mutation {
+    signIn(email: "demo@st6.io", password: "demo1234"){
+     token
+   }
+}`;
+
+const url = "http://softuni-swapp-212366186.eu-west-1.elb.amazonaws.com/graphql";
+const opts = {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({query})
+};
+
+
 export function fetchUser(e) {
     e.preventDefault();
 
     debugger;
     return dispatch => {
         dispatch(loginPending());
-        fetch('https://exampleapi.com/products')
+        fetch(url, opts)
         .then(res => res.json())
         .then(res => {
             if(res.error) {

@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import rootReducer from './reducers';
+import {rootReducer} from './reducers/index';
 
+console.log(rootReducer)
 let composeEnhancers = compose;
 
 if (process.env.NODE_ENV === 'development') {
@@ -10,6 +11,7 @@ if (process.env.NODE_ENV === 'development') {
     composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line no-underscore-dangle
 }
 
+debugger;
 const store = createStore(
     rootReducer,
     composeEnhancers(

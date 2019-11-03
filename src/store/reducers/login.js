@@ -1,4 +1,4 @@
-import { FETCH_USER_PENDING, FETCH_USER_SUCCESS, FETCH_USER_ERROR } from '../actions/index';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     pending: false,
@@ -8,18 +8,18 @@ const initialState = {
 
 export function loginReducer(state = initialState, action) {
     switch(action.type) {
-        case FETCH_USER_PENDING: 
+        case actionTypes.FETCH_USER_PENDING: 
             return {
                 ...state,
                 pending: true
             }
-        case FETCH_USER_SUCCESS:
+        case actionTypes.FETCH_USER_SUCCESS:
             return {
                 ...state,
                 pending: false,
                 user: action.payload
             }
-        case FETCH_USER_ERROR:
+        case actionTypes.FETCH_USER_ERROR:
             return {
                 ...state,
                 pending: false,
@@ -30,6 +30,6 @@ export function loginReducer(state = initialState, action) {
     }
 }
 
-export const getUser = state => state.products;
+export const getUser = state => state.session;
 export const getPending = state => state.pending;
 export const getError = state => state.error;

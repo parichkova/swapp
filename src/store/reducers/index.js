@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux';
 
-import { loginReducer } from './login';
-
+import { loginReducer  as session } from './login';
+import { episodesReducer as episodes } from './episodes';
+import { charactersReducer as characters } from './characters';
 
 export const rootReducer = combineReducers({
-  loginReducer
+  session,
+  episodes,
+  characters,
 });
 
 console.log(rootReducer)

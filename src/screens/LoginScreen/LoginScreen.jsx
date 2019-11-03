@@ -2,7 +2,7 @@ import React from 'react';
 import { FormContainer as LoginForm } from '../../components/Form/Form';
 import './style.scss';
 
-const LoginScreen = ({ isLoggedIn }) => {
+export const LoginScreen = ({ isLoggedIn, ...other }) => {
     if (isLoggedIn) {
         return 'a';
       } else {
@@ -16,5 +16,3 @@ const LoginScreen = ({ isLoggedIn }) => {
         )
     }
 };
-
-export { LoginScreen };

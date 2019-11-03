@@ -11,7 +11,6 @@ if (process.env.NODE_ENV === 'development') {
     composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line no-underscore-dangle
 }
 
-debugger;
 const store = createStore(
     rootReducer,
     composeEnhancers(

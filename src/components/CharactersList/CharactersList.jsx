@@ -1,20 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import './style.scss';
 
-export const CharactersList = ({ charactersList }) => {
-    useEffect(() =>{
-        console.log('change')
-    }, [charactersList]);
+const Characters= ({ charactersList }) => {
+  if (charactersList) {
+    return charactersList.map((character) => (
+      <Link to={`/characters/${character.node.id}`}>
+        <div className="character-box" key={character.node.id}>
+          <img src={character.node.image} alt={character.node.name} />
+          <div className="character-name">
+            <span>
+              {character.node.name}
+            </span>
+          </div>
+        </div>
+      </Link>
+    ));
+  }
+  return <div> No characters... </div>;
+};
 
-    if (charactersList) {
-        return charactersList.map(character => {
-            return (
-                <div key={character.node.id}>
-                    {character.node.name}
-                    <img src={character.node.image} alt={character.node.name} />
-                </div>
-            )
-        })
-    } else {
-        return <div> No characters... </div>
-    } 
-}
+export const CharactersList = withRouter(Characters);

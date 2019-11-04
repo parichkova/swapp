@@ -1,0 +1,18 @@
+@import '../.././styles/_variables';
+
+.characters-page {
+    display: flex;
+    align-items: center;
+    background-color: $color-grey;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+
+    .character-list-holder {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

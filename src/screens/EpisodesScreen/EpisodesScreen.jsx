@@ -1,34 +1,34 @@
-import React, { useEffect }from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { loadEpisodes as loadEpisodesAction } from '../../store/actions/';
-import { getEpisodes } from '../../store/reducers/episodes';
 import { bindActionCreators } from 'redux';
+import { loadEpisodes as loadEpisodesAction } from '../../store/actions';
+import { getEpisodes } from '../../store/reducers/episodes';
 import { EpisodesList } from '../../components/EpisodesList/EpisodesList';
 
 export const Episodes = ({ episodes, loadEpisodes }) => {
-    useEffect(() => {
-        loadEpisodes();
-    }, []);
+  useEffect(() => {
+    loadEpisodes();
+  }, []);
 
-    console.log(episodes)
-    return (
-        <div>
+  console.log(episodes);
+  return (
+    <div>
             Tish
-            <EpisodesList episodesList={episodes} />
-        </div>
-    )
-}
-
-const mapStateToProps = (state) => { 
-    const { episodes } = getEpisodes(state);
-
-    return {
-        episodes
-    };
+      <EpisodesList episodesList={episodes} />
+    </div>
+  );
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    loadEpisodes: loadEpisodesAction,
-}, dispatch)
+const mapStateToProps = (state) => {
+  const { episodes } = getEpisodes(state);
+
+  return {
+    episodes,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  loadEpisodes: loadEpisodesAction,
+}, dispatch);
 
 export const EpisodesScreen = connect(mapStateToProps, mapDispatchToProps)(Episodes);

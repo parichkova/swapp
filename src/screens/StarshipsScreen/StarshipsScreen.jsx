@@ -1,9 +1,7 @@
 import React from 'react';
 
 export const StarshipsScreen = () => (
-    <div>
+  <div>
         Test starships
-    </div>
+  </div>
 );
-    
-

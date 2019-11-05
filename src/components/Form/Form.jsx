@@ -5,7 +5,7 @@ import styles from './Form.module.scss';
 
 import { fetchUser, fetchUser as fetchUserAction } from '../../store/actions/index';
 import { getError, getUser, getPending } from '../../store/reducers/login';
-// import { getProductsError, getProducts, getProductsPending} from '../../store/reducers/login';
+import { Button } from '../Button/Button';
 
 const Form = ({
   error, user, pending, fetchUser, label,
@@ -25,19 +25,21 @@ const Form = ({
         className={styles.form}
         onSubmit={(e) => { fetchUser(e); }}
       >
-        <div className={styles.form__controls}>
-          <input
-            type="text"
-            value={name}
-            onChange={(ev) => { setName(ev.target.value); }}
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(ev) => { setPassword(ev.target.value); }}
-          />
+        <div className={styles.form__controls_holder}>
+          <div className={styles.form__controls}>
+            <input
+              type="text"
+              value={name}
+              onChange={(ev) => { setName(ev.target.value); }}
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={(ev) => { setPassword(ev.target.value); }}
+            />
+          </div>
+          <Button text="Login" />
         </div>
-        <button>Click me </button>
       </form>
     </div>
   );

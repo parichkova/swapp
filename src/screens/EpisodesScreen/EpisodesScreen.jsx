@@ -4,16 +4,15 @@ import { bindActionCreators } from 'redux';
 import { loadEpisodes as loadEpisodesAction } from '../../store/actions';
 import { getEpisodes } from '../../store/reducers/episodes';
 import { EpisodesList } from '../../components/EpisodesList/EpisodesList';
+import './styles.scss';
 
 export const Episodes = ({ episodes, loadEpisodes }) => {
   useEffect(() => {
     loadEpisodes();
   }, []);
 
-  console.log(episodes);
   return (
-    <div>
-            Tish
+    <div className="episodes-page">
       <EpisodesList episodesList={episodes} />
     </div>
   );

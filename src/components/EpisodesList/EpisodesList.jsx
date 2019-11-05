@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
+import './styles.scss';
 
 export const EpisodesList = ({ episodesList }) => {
   useEffect(() => {
-    console.log('change');
   }, [episodesList]);
 
   if (episodesList) {
     return episodesList.map((episode) => (
-      <div key={episode.node.id}>
+      <div
+        key={episode.node.id}
+        className=""
+      >
         {episode.node.title}
         <img src={episode.node.image} alt={episode.node.text} />
-        <p>{episode.node.openCrawl}</p>
+        <p className="episode-info">{episode.node.openCrawl}</p>
       </div>
     ));
   }

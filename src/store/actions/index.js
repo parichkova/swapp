@@ -55,9 +55,18 @@ const loadCharacterFail = (error) => ({
   error,
 });
 
+const loadEpisodeSuccess = ({ episode }) => ({
+  type: action.LOAD_EPISODE_SUCCESS,
+  episodeLoaded: episode,
+});
+
+const loadEpisodeFail = (error) => ({
+  type: action.LOAD_EPISODE_FAIL,
+  error,
+});
+
 // [TODO] get these credentials from .env file and gitignore it
 export const fetchUser = (e, email, password) => {
-  debugger;
   const query = `mutation {
         signIn(email: "${email}", password: "${password}"){
         token
@@ -213,11 +222,44 @@ export const loadCharacter = (id) => {
     fetch(url, opts)
       .then((res) => res.json())
       .then((res) => {
-        debugger;
         dispatch(loadCharacterSuccess(res.data));
       })
       .catch((error) => {
         dispatch(loadCharacterFail(error));
+      });
+  };
+};
+
+
+export const loadEpisode = (id) => {
+  const query = `query {
+    person(id: "${id}") {
+      id,
+      name,
+      birthYear,
+      mass,
+      image,
+    }
+  }`;
+
+  const token = CookieHelper.getCookie('token');
+  const opts = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ query }),
+  };
+
+  return (dispatch) => {
+    fetch(url, opts)
+      .then((res) => res.json())
+      .then((res) => {
+        dispatch(loadEpisodeSuccess(res.data));
+      })
+      .catch((error) => {
+        dispatch(loadEpisodeFail(error));
       });
   };
 };

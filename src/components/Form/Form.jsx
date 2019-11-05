@@ -23,7 +23,7 @@ const Form = ({
       <form
         className={styles.form}
         onSubmit={(e) => { fetchUser(e, email, password); }}
-        >
+      >
         <div className={styles.form__controls_holder}>
           {error
             && (

@@ -1,23 +1,30 @@
 import React, { useEffect } from 'react';
+import { withRouter, Link } from 'react-router-dom';
 import './styles.scss';
 
-export const EpisodesList = ({ episodesList }) => {
+const Episodes = ({ episodesList }) => {
   useEffect(() => {
   }, [episodesList]);
 
   if (episodesList) {
     return episodesList.map((episode) => (
-      <div
+      <Link
         key={episode.node.id}
-        className="episode-wrapper"
+        to={`/episodes/${episode.node.id}`}
       >
-        <img src={episode.node.image} alt={episode.node.text} />
-        <p className="episode-title">
-          {episode.node.title}
-        </p>
-        <p className="episode-info">{episode.node.openingCrawl}</p>
-      </div>
+        <div
+          className="episode-wrapper"
+        >
+          <img src={episode.node.image} alt={episode.node.text} />
+          <p className="episode-title">
+            {episode.node.title}
+          </p>
+          <p className="episode-info">{episode.node.openingCrawl}</p>
+        </div>
+      </Link>
     ));
   }
   return <div> No episodes... </div>;
 };
+
+export const EpisodesList = withRouter(Episodes);

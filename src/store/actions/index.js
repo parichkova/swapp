@@ -232,13 +232,33 @@ export const loadCharacter = (id) => {
 
 
 export const loadEpisode = (id) => {
-  const query = `query {
-    person(id: "${id}") {
+  const query = `query{
+    episode(id: "${id}") {
       id,
-      name,
-      birthYear,
-      mass,
+      episodeId,
+      title,
       image,
+      openingCrawl,
+      director,
+      releaseDate,
+      people(first: 12) {
+        edges {
+          node {
+            id,
+            name,
+            birthYear,
+            height,
+            mass,
+            image,
+            species {
+              name
+            },
+            homeworld {
+              name
+            }
+          }
+        }
+      }
     }
   }`;
 
@@ -256,6 +276,7 @@ export const loadEpisode = (id) => {
     fetch(url, opts)
       .then((res) => res.json())
       .then((res) => {
+        debugger;
         dispatch(loadEpisodeSuccess(res.data));
       })
       .catch((error) => {

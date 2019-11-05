@@ -3,9 +3,10 @@ import * as actionTypes from '../actions/actionTypes';
 export function episodeLoadedReducer(state = [], action) {
   switch (action.type) {
     case actionTypes.LOAD_EPISODE_SUCCESS:
+      debugger;
       return {
         ...state,
-        characterLoaded: action.characterLoaded,
+        episodeLoaded: action.episodeLoaded,
       };
     case actionTypes.LOAD_EPISODE_FAIL:
       return {
@@ -17,4 +18,4 @@ export function episodeLoadedReducer(state = [], action) {
   }
 }
 
-export const getEpisodeLoaded = (state) => state.episodeLoaded;
+export const getEpisodeLoaded = (state) => { debugger; return state.episodeLoaded; }

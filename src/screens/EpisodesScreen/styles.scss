@@ -1,5 +1,10 @@
 @import '../../styles/variables';
 
 .episodes-page {
-
+  padding: 0 3%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: $color-grey;
 }

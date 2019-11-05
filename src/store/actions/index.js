@@ -9,7 +9,7 @@ const loginSuccessful = (user) => {
   return {
     type: action.FETCH_USER_SUCCESS,
     session: {
-      isUserSignedIn: true,
+      isLoggedIn: true,
       error: '',
     },
   };
@@ -18,7 +18,7 @@ const loginSuccessful = (user) => {
 const loginFailed = (error) => ({
   type: action.FETCH_USER_ERROR,
   session: {
-    isUserSignedIn: false,
+    isLoggedIn: false,
     error,
   },
 }
@@ -56,9 +56,10 @@ const loadCharacterFail = (error) => ({
 });
 
 // [TODO] get these credentials from .env file and gitignore it
-export const fetchUser = (e) => {
+export const fetchUser = (e, email, password) => {
+  debugger;
   const query = `mutation {
-        signIn(email: "demo@st6.io", password: "demo1234"){
+        signIn(email: "${email}", password: "${password}"){
         token
        }
     }`;
@@ -68,17 +69,27 @@ export const fetchUser = (e) => {
     body: JSON.stringify({ query }),
   };
 
-
   e.preventDefault();
 
   return (dispatch) => {
     fetch(url, opts)
       .then((res) => res.json())
       .then((res) => {
+
+        // IF I used axios I would not throw errors
+        if (!res) {
+          throw new Error('Unsuccessful login');
+        }
+
         dispatch(loginSuccessful(res.data));
       })
-      .catch((error) => {
-        dispatch(loginFailed(error));
+      .catch((errors) => {
+        let message = 'Unsuccessful login';
+
+        if (errors[0] && errors[0].message) {
+          message = errors[0].message;
+        }
+        dispatch(loginFailed(message));
       });
   };
 };
@@ -87,7 +98,7 @@ export const fetchUser = (e) => {
 export const loadEpisodes = () => {
   const query = `query
     {
-        allEpisodes(first:5) {
+        allEpisodes(first:6) {
         edges {
         node {
             id, 

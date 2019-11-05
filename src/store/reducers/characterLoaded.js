@@ -19,6 +19,6 @@ export function characterLoadedReducer(state = [], action) {
 
 export const getCharacterLoaded = (state) => {
   debugger;
-  
+
   return state.characterLoaded;
 };

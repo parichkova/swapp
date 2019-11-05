@@ -3,13 +3,15 @@
 .form__wrapper {
     flex-direction: column;
     display: flex;
-    height: 400px;
-    padding: 25px;
-    width: 80%;
+    min-height: 400px;
+    padding: 35px;
+    width: 100%;
     background-color: #000;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
+
 .form {
     height: 100%;
     background-color: $color-white;
@@ -17,6 +19,12 @@
     padding: 30px;
     border-radius: 13px;
     box-sizing: border-box;
+
+    &__error {
+        font-size: 18px;
+        color: red;
+        width: 100%;
+    }
 
     &__title {
         font-size: 123px;

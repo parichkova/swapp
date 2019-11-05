@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import './style.scss';
 
-const Characters= ({ charactersList }) => {
+const Characters = ({ charactersList }) => {
   if (charactersList) {
     return charactersList.map((character) => (
       <Link to={`/characters/${character.node.id}`}>

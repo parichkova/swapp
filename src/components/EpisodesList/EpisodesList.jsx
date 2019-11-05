@@ -9,11 +9,13 @@ export const EpisodesList = ({ episodesList }) => {
     return episodesList.map((episode) => (
       <div
         key={episode.node.id}
-        className=""
+        className="episode-wrapper"
       >
-        {episode.node.title}
         <img src={episode.node.image} alt={episode.node.text} />
-        <p className="episode-info">{episode.node.openCrawl}</p>
+        <p className="episode-title">
+          {episode.node.title}
+        </p>
+        <p className="episode-info">{episode.node.openingCrawl}</p>
       </div>
     ));
   }

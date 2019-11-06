@@ -84,7 +84,6 @@ export const fetchUser = (e, email, password) => {
     fetch(url, opts)
       .then((res) => res.json())
       .then((res) => {
-
         // IF I used axios I would not throw errors
         if (!res) {
           throw new Error('Unsuccessful login');
@@ -197,14 +196,39 @@ export const loadCharacters = () => {
   };
 };
 
+// name
+// image
+// height
+// weight
+// species
+// home world
+// piloted starships
+
 export const loadCharacter = (id) => {
   const query = `query {
     person(id: "${id}") {
       id,
       name,
-      birthYear,
-      mass,
       image,
+      height,
+      mass,
+    species{
+          id,
+          name,
+          classification,
+          averageHeight,
+          averageLifespan,
+      },
+    starships{
+        edges{
+          node{
+            id,
+            image,
+            name,
+          }
+        }
+      },
+      birthYear,
     }
   }`;
 

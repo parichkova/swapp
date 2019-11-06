@@ -1,1 +1,57 @@
 @import '../../styles/variables';
+
+.episode-page {
+  display: flex;
+  justify-content: center;
+  padding: 0 10%;
+  background-color: $color-grey;
+  flex-wrap: wrap;
+
+  .main-episode-info {
+    background-color: $color-white;
+    display: flex;
+    width: 100%;
+    height: 240px;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 300px;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-content: space-around;
+      font-weight: bold;
+
+      h2 {
+        font-size: 42px;
+        margin: 0;
+        color: $color-light-blue;
+      }
+
+      p {
+        font-size: 32px;
+        margin: 0;
+        color: $color-dark-grey;        
+      }
+    }
+  }
+
+  .more-info {
+    background-color: $color-white;
+    padding: 10px;
+
+    span {
+      color: $color-light-blue;
+      padding-left: 4px;
+    }
+  }
+}

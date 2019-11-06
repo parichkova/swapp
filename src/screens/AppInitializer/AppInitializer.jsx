@@ -7,6 +7,8 @@ import { CookieHelper } from '../../helpers/Cookies';
 import { getIsLoggedIn } from '../../store/reducers/login';
 
 export const App = ({ isLoggedIn, history }) => {
+  // [TODO] check whether cookie has expired
+
   if (isLoggedIn || CookieHelper.getCookie('token')) {
     history.replace('/episodes');
   } else {

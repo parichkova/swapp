@@ -8,6 +8,7 @@ const Characters = ({ charactersList }) => {
   if (charactersList) {
     return charactersList.map((character) => (
       <Link
+        className="character-list-item"
         key={character.node.id}
         to={`/characters/${character.node.id}`}
       >

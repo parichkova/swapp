@@ -2,7 +2,6 @@
 @import './../../styles/variables';
 
 a {
-    width: 30%;
     display: inherit;
     flex-direction: row;
     margin: 10px 0;
@@ -12,6 +11,10 @@ a {
     &:active {
         color: $color-light-blue;
     }
+}
+
+a.character-list-item {
+    width: 30%;
 }
 
 .character-box {

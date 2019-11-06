@@ -50,11 +50,13 @@ export const Episode = ({ id: { id }, episodeLoaded, loadEpisode }) => {
             <div className="characters-list">
               {episode.people
               && episode.people.edges.map((edge) => (
-                <SmallCard
-                  key={edge.node.id}
-                  image={edge.node.image}
-                  text={edge.node.name}
-                />
+                <div className="small-card-holder">
+                  <SmallCard
+                    key={edge.node.id}
+                    image={edge.node.image}
+                    text={edge.node.name}
+                  />
+                </div>
               ))}
             </div>
           </>

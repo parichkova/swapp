@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 
-export function characterLoadedReducer(state = [], action) {
+export function characterLoadedReducer(state = {}, action) {
   switch (action.type) {
     case actionTypes.LOAD_CHARACTER_SUCCESS:
       return {

@@ -1,0 +1,71 @@
+@import './../../styles/variables';
+
+.character-page {
+    > section {
+      padding: 0 10%;
+      background-color: $color-grey;
+  
+      .character-name-title {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        color: $color-light-blue;
+      }
+  
+      > div {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      
+        .character-holder {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          background-color: $color-white;
+          width: 48%;
+  
+          .character-main {
+            width: 100%;
+            display: inherit;
+            flex-direction: column;
+            align-items: center;
+            color: $color-light-blue;
+            font-weight: bold;
+            font-size: 21px;
+  
+            img {
+              width: 90%;
+              height: auto;
+            }
+          }
+        }
+      
+        .spaceship-list {
+          width: 48%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          
+          h2 {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 1;
+          }
+  
+          hr {
+            width: 100%;
+          }
+  
+          > div {
+            
+          }
+        }
+      }
+    }
+  }

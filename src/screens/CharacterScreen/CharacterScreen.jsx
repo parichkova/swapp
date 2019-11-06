@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
+
 import { loadCharacter as loadCharacterAction } from '../../store/actions';
 import { getCharacterLoaded } from '../../store/reducers/characterLoaded';
 import { SmallCard } from '../../components/SmallCard/SmallCard';
 import { NavBar } from '../../components/NavBar/NavBar';
+import './style.scss';
 
 export const Character = ({ id: { characterId }, loadCharacter, characterLoaded }) => {
   useEffect(() => {
@@ -21,44 +23,47 @@ export const Character = ({ id: { characterId }, loadCharacter, characterLoaded 
         logoName="Swapp"
       />
       {character && (
-        <>
-          <p className="character-name-title">
+        <section>
+          <h1 className="character-name-title">
             {character.name}
-          </p>
+          </h1>
+          <hr />
           <div>
             <div className="character-holder">
               <div
                 className="character-main"
               >
-                {character.name}
+                <p>
+                  {character.name}
+                </p>
                 <img
-                  style={{ width: '100px' }}
                   src={character.image}
                   alt={character.name}
                 />
-                <div className="character-more">
-                  <p>
-                    <span className="property">Height:</span>
-                    {character.height}
-                  </p>
-                  <p>
-                    <span className="property">Weight:</span>
-                    {character.mass}
-                  </p>
-                  <p>
-                    <span className="property">Classification:</span>
-                    {character.species.classification}
-                  </p>
-                  <p>
-                    <span className="property">Home world:</span>
-                    {character.homeworld && character.homeworld.name}
-                  </p>
-                </div>
+              </div>
+              <div className="character-more">
+                <p>
+                  <span className="property">Height:</span>
+                  {character.height}
+                </p>
+                <p>
+                  <span className="property">Weight:</span>
+                  {character.mass}
+                </p>
+                <p>
+                  <span className="property">Classification:</span>
+                  {character.species.classification}
+                </p>
+                <p>
+                  <span className="property">Home world:</span>
+                  {character.homeworld && character.homeworld.name}
+                </p>
               </div>
             </div>
 
             <div className="spaceship-list">
-              <p>Piloted Starship</p>
+              <h2>Piloted Starship</h2>
+              <hr />
               <div>
                 {character.starships
                   && character.starships.edges.map((edge) => (
@@ -75,7 +80,7 @@ export const Character = ({ id: { characterId }, loadCharacter, characterLoaded 
               </div>
             </div>
           </div>
-        </>
+        </section>
       )}
     </div>
   );
@@ -101,7 +106,7 @@ Character.propTypes = {
 Character.defaultProps = {
   id: {},
   characterLoaded: {},
-  loadCharacter: () => {},
+  loadCharacter: () => { },
 };
 
 export const CharacterScreen = connect(mapStateToProps, mapDispatchToProps)(Character);

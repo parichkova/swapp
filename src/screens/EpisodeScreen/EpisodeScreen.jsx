@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { loadEpisode as loadEpisodeAction } from '../../store/actions';
 import { getEpisodeLoaded } from '../../store/reducers/episodeLoaded';
 import { SmallCard } from '../../components/SmallCard/SmallCard';
@@ -76,7 +76,7 @@ export const EpisodeScreen = connect(mapStateToProps, mapDispatchToProps)(Episod
 
 Episode.propTypes = {
   id: PropTypes.shape({
-    id: string,
+    id: PropTypes.string,
   }),
   episodeLoaded: PropTypes.object,
   loadEpisode: PropTypes.func,

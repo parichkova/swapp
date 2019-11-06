@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { loadCharacter as loadCharacterAction } from '../../store/actions';
 import { getCharacterLoaded } from '../../store/reducers/characterLoaded';
+import { SmallCard } from '../../components/SmallCard/SmallCard';
 
 export const Character = ({ id: { characterId }, loadCharacter, characterLoaded }) => {
   useEffect(() => {
@@ -60,12 +62,9 @@ export const Character = ({ id: { characterId }, loadCharacter, characterLoaded 
                       key={edge.node.id}
                       to={`/starships/${edge.node.id}`}
                     >
-                      <p>
-                        {edge.node.name}
-                      </p>
-                      <img
-                        src={edge.node.image}
-                        alt={edge.node.name}
+                      <SmallCard
+                        image={edge.node.image}
+                        text={edge.node.name}
                       />
                     </Link>
                   ))}
@@ -86,5 +85,19 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   loadCharacter: loadCharacterAction,
 }, dispatch);
+
+Character.propTypes = {
+  id: PropTypes.shape({
+    id: PropTypes.string,
+  }),
+  characterLoaded: PropTypes.object,
+  loadCharacter: PropTypes.func,
+};
+
+Character.defaultProps = {
+  id: {},
+  characterLoaded: {},
+  loadCharacter: () => {},
+};
 
 export const CharacterScreen = connect(mapStateToProps, mapDispatchToProps)(Character);

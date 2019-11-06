@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loadEpisodes as loadEpisodesAction } from '../../store/actions';
@@ -7,9 +7,7 @@ import { EpisodesList } from '../../components/EpisodesList/EpisodesList';
 import './styles.scss';
 
 export const Episodes = ({ episodes, loadEpisodes }) => {
-  useEffect(() => {
-    loadEpisodes();
-  }, []);
+  loadEpisodes();
 
   return (
     <div className="episodes-page">

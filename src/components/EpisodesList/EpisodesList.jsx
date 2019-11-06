@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import './styles.scss';
 
 const Episodes = ({ episodesList }) => {
-  useEffect(() => {
-  }, [episodesList]);
-
   if (episodesList) {
     return episodesList.map((episode) => (
       <Link

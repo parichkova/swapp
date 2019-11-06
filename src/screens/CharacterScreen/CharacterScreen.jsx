@@ -7,7 +7,7 @@ import { getCharacterLoaded } from '../../store/reducers/characterLoaded';
 
 export const Character = ({ id: { characterId }, loadCharacter, characterLoaded }) => {
   useEffect(() => {
-    loadCharacter(characterId);
+    setTimeout(() => loadCharacter(characterId), 0);
   }, [characterId]);
 
   const character = characterLoaded && characterLoaded.characterLoaded;

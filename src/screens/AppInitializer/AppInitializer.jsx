@@ -26,7 +26,7 @@ App.propTypes = {
   isLoggedIn: PropTypes.bool,
   history: PropTypes.shape({
     match: PropTypes.string,
-    location: PropTypes.string,
+    location: PropTypes.object,
   }),
 };
 

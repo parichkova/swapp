@@ -88,7 +88,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 
 Character.propTypes = {
   id: PropTypes.shape({
-    id: PropTypes.string,
+    characterId: PropTypes.string,
   }),
   characterLoaded: PropTypes.object,
   loadCharacter: PropTypes.func,

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loadEpisode as loadEpisodeAction } from '../../store/actions';
 import { getEpisodeLoaded } from '../../store/reducers/episodeLoaded';
-import { Card } from '../../components/Card/Card';
+import { SmallCard } from '../../components/SmallCard/SmallCard';
+import PropTypes, { string } from 'prop-types';
 import './style.scss';
 
 export const Episode = ({ id: { id }, episodeLoaded, loadEpisode }) => {
@@ -44,6 +45,16 @@ export const Episode = ({ id: { id }, episodeLoaded, loadEpisode }) => {
                   Release Date:
                   <span>{episode.releaseDate}</span>
                 </p>
+                <div className="characters-list">
+                  {episode.people
+                  && episode.people.edges.map((edge) => (
+                    <SmallCard
+                      key={edge.node.id}
+                      image={edge.node.image}
+                      text={edge.node.name}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </>
@@ -62,3 +73,15 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch);
 
 export const EpisodeScreen = connect(mapStateToProps, mapDispatchToProps)(Episode);
+
+Episode.propTypes = {
+  id: PropTypes.string,
+  episodeLoaded: PropTypes.object,
+  loadEpisode: PropTypes.func,
+};
+
+Episode.defaultProps = {
+  id: '',
+  episodeLoaded: {},
+  loadEpisode: () => {},
+};

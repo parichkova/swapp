@@ -22,5 +22,6 @@ module.exports = {
   ],
   rules: {
     'import/prefer-default-export': 'off',
+    'react/forbid-prop-types': 'off',
   },
 };

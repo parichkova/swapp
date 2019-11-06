@@ -30,16 +30,18 @@ export const Character = ({ id: { characterId }, loadCharacter, characterLoaded 
           <hr />
           <div>
             <div className="character-holder">
-              <div
-                className="character-main"
-              >
-                <p>
-                  {character.name}
-                </p>
-                <img
-                  src={character.image}
-                  alt={character.name}
-                />
+              <div>
+                <div
+                  className="character-main"
+                >
+                  <p>
+                    {character.name}
+                  </p>
+                  <img
+                    src={character.image}
+                    alt={character.name}
+                  />
+                </div>
               </div>
               <div className="character-more">
                 <p>

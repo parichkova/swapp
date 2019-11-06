@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { CookieHelper } from '../../helpers/Cookies';
+import PropTypes from 'prop-types';
 
+import { CookieHelper } from '../../helpers/Cookies';
 import { getIsLoggedIn } from '../../store/reducers/login';
 
 export const App = ({ isLoggedIn, history }) => {
@@ -18,6 +19,20 @@ export const App = ({ isLoggedIn, history }) => {
     </div>
   );
 };
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  history: PropTypes.shape({
+    match: PropTypes.string,
+    location: PropTypes.string,
+  }),
+};
+
+App.defaultProps = {
+  isLoggedIn: false,
+  history: {},
+};
+
 
 const mapStateToProps = (state) => ({
   isLoggedIn: getIsLoggedIn(state),

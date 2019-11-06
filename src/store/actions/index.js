@@ -276,7 +276,6 @@ export const loadEpisode = (id) => {
     fetch(url, opts)
       .then((res) => res.json())
       .then((res) => {
-        debugger;
         dispatch(loadEpisodeSuccess(res.data));
       })
       .catch((error) => {

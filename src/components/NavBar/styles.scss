@@ -1,0 +1,25 @@
+@import './../../styles/variables';
+
+.nav-bar {
+    width: 100%;
+    background-color: $color-black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+
+    .logo {
+        color: $color-yellow;
+        font-size: 24px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+
+        .link-item {
+            color: $color-light-blue;
+            margin: 0 5px;
+        }
+    }
+}

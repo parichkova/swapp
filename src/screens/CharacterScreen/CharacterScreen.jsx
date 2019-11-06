@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { loadCharacter as loadCharacterAction } from '../../store/actions';
 import { getCharacterLoaded } from '../../store/reducers/characterLoaded';
 import { SmallCard } from '../../components/SmallCard/SmallCard';
+import { NavBar } from '../../components/NavBar/NavBar';
 
 export const Character = ({ id: { characterId }, loadCharacter, characterLoaded }) => {
   useEffect(() => {
@@ -16,6 +17,9 @@ export const Character = ({ id: { characterId }, loadCharacter, characterLoaded 
 
   return (
     <div className="character-page">
+      <NavBar
+        logoName="Swapp"
+      />
       {character && (
         <>
           <p className="character-name-title">

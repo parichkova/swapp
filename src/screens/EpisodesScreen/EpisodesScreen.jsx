@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import { loadEpisodes as loadEpisodesAction } from '../../store/actions';
 import { getEpisodes } from '../../store/reducers/episodes';
 import { EpisodesList } from '../../components/EpisodesList/EpisodesList';
+import { NavBar } from '../../components/NavBar/NavBar';
 import './styles.scss';
 
 export const Episodes = ({ episodes, loadEpisodes }) => {
@@ -11,6 +13,9 @@ export const Episodes = ({ episodes, loadEpisodes }) => {
 
   return (
     <div className="episodes-page">
+      <NavBar
+        logoName="Swapp"
+      />
       <EpisodesList episodesList={episodes} />
     </div>
   );
@@ -27,5 +32,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   loadEpisodes: loadEpisodesAction,
 }, dispatch);
+
+Episodes.propTypes = {
+  episodes: PropTypes.arrayOf(PropTypes.object),
+  loadEpisodes: PropTypes.func.isRequired,
+};
+
+Episodes.defaultProps = {
+  episodes: [],
+};
 
 export const EpisodesScreen = connect(mapStateToProps, mapDispatchToProps)(Episodes);

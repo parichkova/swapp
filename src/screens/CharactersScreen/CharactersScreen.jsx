@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { loadCharacters as loadCharactersAction } from '../../store/actions';
 import { getCharacters } from '../../store/reducers/characters';
 import { CharactersList } from '../../components/CharactersList/CharactersList';
+import { NavBar } from '../../components/NavBar/NavBar';
 import './style.scss';
 
 export const Characters = ({ characters, loadCharacters }) => {
@@ -13,9 +14,14 @@ export const Characters = ({ characters, loadCharacters }) => {
 
   return (
     <div className="characters-page">
-      <div className="character-list-holder">
-        <CharactersList charactersList={characters} />
-      </div>
+      <NavBar
+        logoName="Swapp"
+      />
+      <section>
+        <div className="character-list-holder">
+          <CharactersList charactersList={characters} />
+        </div>
+      </section>
     </div>
   );
 };

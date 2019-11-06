@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { loadEpisode as loadEpisodeAction } from '../../store/actions';
 import { getEpisodeLoaded } from '../../store/reducers/episodeLoaded';
+import { NavBar } from '../../components/NavBar/NavBar';
 import { SmallCard } from '../../components/SmallCard/SmallCard';
 import './style.scss';
 
@@ -16,9 +17,12 @@ export const Episode = ({ id: { id }, episodeLoaded, loadEpisode }) => {
 
   return (
     <div className="episode-page">
+      <NavBar
+        logoName="Swapp"
+      />
       {episode
         && (
-          <>
+          <section>
             <div className="main-episode-info">
               <img src={episode.image} alt={episode.image} />
               <div>
@@ -59,7 +63,7 @@ export const Episode = ({ id: { id }, episodeLoaded, loadEpisode }) => {
                 </div>
               ))}
             </div>
-          </>
+          </section>
         )}
     </div>
   );

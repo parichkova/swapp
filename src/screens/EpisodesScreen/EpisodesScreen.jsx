@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -9,14 +9,18 @@ import { NavBar } from '../../components/NavBar/NavBar';
 import './styles.scss';
 
 export const Episodes = ({ episodes, loadEpisodes }) => {
-  loadEpisodes();
+  useEffect(() => {
+    loadEpisodes();
+  }, []);
 
   return (
     <div className="episodes-page">
       <NavBar
         logoName="Swapp"
       />
-      <EpisodesList episodesList={episodes} />
+      <section>
+        <EpisodesList episodesList={episodes} />
+      </section>
     </div>
   );
 };

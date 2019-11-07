@@ -1,8 +1,9 @@
 @import './variables.scss';
-
+@import './fonts/fonts.scss';
 
 html,
 body {
+    font-family: 'Distant-Galaxy';
     margin: 0;
     padding: 0;
     height: 100%;

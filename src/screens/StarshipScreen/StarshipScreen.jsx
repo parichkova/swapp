@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { NavBar } from '../../components/NavBar/NavBar';
 import { loadStarship as loadStarshipAction } from '../../store/actions';
 import { getStarshipLoaded } from '../../store/reducers/starshipLoaded';
+import './style.scss';
 
 export const Starship = ({ id: { id }, starshipLoaded, loadStarship }) => {
   useEffect(() => {
@@ -15,7 +16,7 @@ export const Starship = ({ id: { id }, starshipLoaded, loadStarship }) => {
   const starship = starshipLoaded && starshipLoaded.starshipLoaded;
 
   return (
-    <div>
+    <div className="starship-page">
       <NavBar
         logoName="Swapp"
       />
@@ -29,17 +30,19 @@ export const Starship = ({ id: { id }, starshipLoaded, loadStarship }) => {
               {`( ${starship.model} )`}
             </p>
           </div>
+          <hr></hr>
           <div className="starship-information-wrapper">
-            <div className="starship-main">
-              <p>
-                {starship.name}
-              </p>
-              <img
-                src={starship.image}
-                alt={starship.name}
-              />
-            </div>
-            <div className="starship-more">
+            <div className="starship-holder">
+              <div className="starship-main">
+                <p>
+                  {starship.name}
+                </p>
+                <img
+                  src={starship.image}
+                  alt={starship.name}
+                />
+              </div>
+              <div className="starship-more">
               <p>
                 Class:
                 <span className="property">
@@ -70,6 +73,12 @@ export const Starship = ({ id: { id }, starshipLoaded, loadStarship }) => {
                   {starship.hyperdriveRating}
                 </span>
               </p>
+            </div>
+            </div>
+            <div className="starship-list">
+              <h2>
+                Compared to starship class {starship.class}
+              </h2>
             </div>
           </div>
         </section>

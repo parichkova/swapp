@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { SmallCard } from '../SmallCard/SmallCard';
 import './style.scss';
 
 const Characters = ({ charactersList }) => {
@@ -12,14 +13,10 @@ const Characters = ({ charactersList }) => {
         key={character.node.id}
         to={`/characters/${character.node.id}`}
       >
-        <div className="character-box">
-          <img src={character.node.image} alt={character.node.name} />
-          <div className="character-name">
-            <span>
-              {character.node.name}
-            </span>
-          </div>
-        </div>
+        <SmallCard
+          image={character.node.image}
+          text={character.node.name}
+        />
       </Link>
     ));
   }

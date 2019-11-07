@@ -1,23 +1,36 @@
 @import './../../styles/variables';
 
-.character-page {  
+.starship-page {  
 background-color: $color-grey;
 
   > section {
     padding: 5% 10%;
 
-    .character-name-title {
+    .title {
       display: flex;
       justify-content: center;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
-      color: $color-light-blue;
+
+      h2 {
+        color: $color-light-blue;
+        margin: 0;
+        font-size: 40px;
+      }
+
+      p {
+        color: $color-black;
+        margin: 0;
+        font-size: 32px;
+      }
     }
 
     > hr {
-      margin: 40px;
+      margin: 20px 0 40px;
     }
 
-    > div {
+    .starship-information-wrapper {
       display: flex;
       width: 100%;
       justify-content: center;
@@ -25,17 +38,17 @@ background-color: $color-grey;
       flex-wrap: nowrap;
       justify-content: space-between;
     
-      .character-holder {
+      .starship-holder {
         display: flex;
         justify-content: center;
         flex-direction: column;
         background-color: $color-white;
         width: 48%;
-        padding: 0 5%;
+        padding: 0 3%;
         border-radius: 10px;
         overflow: hidden;
 
-        .character-main {
+        .starship-main {
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -51,7 +64,7 @@ background-color: $color-grey;
           }
         }
 
-        .character-more {
+        .starship-more {
           p {
             margin: 8px 0;
             font-family: sans-serif;
@@ -78,10 +91,6 @@ background-color: $color-grey;
           font-weight: bold;
           line-height: 1.5;
           margin: 0;
-        }
-
-        hr {
-          width: 100%;
         }
       }
     }

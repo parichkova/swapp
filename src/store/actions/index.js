@@ -219,6 +219,9 @@ export const loadCharacter = (id) => {
           averageHeight,
           averageLifespan,
       },
+    homeworld{
+      name
+    },
     starships{
         edges{
           node{

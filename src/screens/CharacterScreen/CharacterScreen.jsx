@@ -45,20 +45,20 @@ export const Character = ({ id: { characterId }, loadCharacter, characterLoaded 
               </div>
               <div className="character-more">
                 <p>
-                  <span className="property">Height: </span>
-                  {character.height}
+                  Height: 
+                  <span className="property">{character.height}</span>
                 </p>
                 <p>
-                  <span className="property">Weight: </span>
-                  {character.mass}
+                  Weight: 
+                  <span className="property">{character.mass}</span>
                 </p>
                 <p>
-                  <span className="property">Classification: </span>
-                  {character.species.classification}
+                  Species: 
+                  <span className="property">{character.species.name}</span>
                 </p>
                 <p>
-                  <span className="property">Home world: </span>
-                  {character.homeworld && character.homeworld.name}
+                  Home world: 
+                  <span className="property">{character.homeworld && character.homeworld.name}</span>
                 </p>
               </div>
             </div>

@@ -8,7 +8,7 @@ import { EpisodesScreen } from '../screens/EpisodesScreen/EpisodesScreen';
 import { CharactersScreen } from '../screens/CharactersScreen/CharactersScreen';
 import { CharacterScreen } from '../screens/CharacterScreen/CharacterScreen';
 import { EpisodeScreen } from '../screens/EpisodeScreen/EpisodeScreen';
-import { StarshipsScreen } from '../screens/StarshipsScreen/StarshipsScreen';
+import { StarshipScreen } from '../screens/StarshipScreen/StarshipScreen';
 
 const AppRouter = () => (
   <Router>
@@ -18,7 +18,7 @@ const AppRouter = () => (
     <Route exact path="/characters/" render={(props) => <CharactersScreen {...props} />} />
     <Route exact path="/episodes/:id/" render={(props) => <EpisodeScreen {...props} />} />
     <Route exact path="/characters/:characterId/" render={(props) => <CharacterScreen {...props} />} />
-    <Route exact path="/starships/:starshipId/" render={(props) => <StarshipsScreen {...props} />} />
+    <Route exact path="/starships/:id/" render={(props) => <StarshipScreen {...props} />} />
   </Router>
 );
 

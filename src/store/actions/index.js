@@ -65,6 +65,16 @@ const loadEpisodeFail = (error) => ({
   error,
 });
 
+const loadStarshipSuccess = ({ starship }) => ({
+  type: action.LOAD_STARSHIP_SUCCESS,
+  starshipLoaded: starship,
+});
+
+const loadStarshipFail = (error) => ({
+  type: action.LOAD_STARSHIP_FAIL,
+  error,
+});
+
 // [TODO] get these credentials from .env file and gitignore it
 export const fetchUser = (e, email, password) => {
   const query = `mutation {
@@ -196,14 +206,6 @@ export const loadCharacters = () => {
   };
 };
 
-// name
-// image
-// height
-// weight
-// species
-// home world
-// piloted starships
-
 export const loadCharacter = (id) => {
   const query = `query {
     person(id: "${id}") {
@@ -307,6 +309,45 @@ export const loadEpisode = (id) => {
       })
       .catch((error) => {
         dispatch(loadEpisodeFail(error));
+      });
+  };
+};
+
+export const loadStarship = (id) => {
+  const query = `query{
+    starship(id: "${id}") {
+      id,
+      name,
+      model,
+      image,
+      starshipClass,
+    cost,
+    maxAtmosphericSpeed,
+    maxMLPerHour,
+    hyperdriveRating,
+      crew
+    }
+  }`;
+
+  const token = CookieHelper.getCookie('token');
+  const opts = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ query }),
+  };
+
+  return (dispatch) => {
+    fetch(url, opts)
+      .then((res) => res.json())
+      .then((res) => {
+        debugger;
+        dispatch(loadStarshipSuccess(res.data));
+      })
+      .catch((error) => {
+        dispatch(loadStarshipFail(error));
       });
   };
 };

@@ -7,5 +7,6 @@ import './styles/index.scss';
 
 ReactDOM.render(
   <Provider store={store}><Router /></Provider>,
+
   document.getElementById('root'),
 );

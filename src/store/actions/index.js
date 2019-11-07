@@ -75,6 +75,11 @@ const loadStarshipFail = (error) => ({
   error,
 });
 
+
+export const updateTheme = () => {
+  return { type: action.TOGGLE_THEME };
+};
+
 // [TODO] get these credentials from .env file and gitignore it
 export const fetchUser = (e, email, password) => {
   const query = `mutation {
